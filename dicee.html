@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dicee</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
+      rel="stylesheet"
+    />
+
+    <script type="text-javascript">
+      function init(){
+        setCookie("player1", 0, 365);
+        setCookie("player2", 0, 365);
+      }
+      function setCookie(name, value, daysToLive) {
+        const date = new Date();
+        date.setTime(date.getTime() + daysToLive * 24 * 60 * 60 * 1000);
+        let expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+      }
+      window.onload=init;
+    </script>
+  </head>
+  <body>
+    <div class="score">Score:</div>
+    <div class="playerNames">
+      <input
+        type="text"
+        id="player1"
+        placeholder="Player's 1 name"
+      /><br /><br />
+      <input
+        type="text"
+        id="player2"
+        placeholder="Player's 2 name"
+      /><br /><br />
+    </div>
+    <div class="container">
+      <h1>Refresh Me</h1>
+
+      <div class="dice">
+        <p class="pl1">Player 1</p>
+        <img class="img1" src="images/dice6.png" />
+      </div>
+
+      <div class="dice">
+        <p class="pl2">Player 2</p>
+        <img class="img2" src="images/dice6.png" />
+      </div>
+      <input
+        type="button"
+        class="btn"
+        id="btn"
+        value="Throw Dices !"
+        onclick="letsGo()"
+      />
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+
+  <footer>🎲 Spataru Andrei 🎲</footer>
+</html>
